@@ -23,17 +23,21 @@ public class Array {
     }
 
     public void removeAt(int index){
-        int[] temp = myArray;
-        count--;
-        myArray = new int[count];
-        for (int i = 0; i < temp.length; i++) {
-            if (i < index){
-                myArray[i] = temp[i];
-            } else if (i == index) {
-                continue;
-            }
-            else {
-                myArray[i] = temp[i-1];
+        if ((index < 0) || (index> count)){
+            throw new IllegalArgumentException();
+        }else {
+            int[] temp = myArray;
+            count--;
+            myArray = new int[count];
+            for (int i = 0; i < temp.length; i++) {
+                if (i < index){
+                    myArray[i] = temp[i];
+                } else if (i == index) {
+                    continue;
+                }
+                else {
+                    myArray[i] = temp[i-1];
+                }
             }
         }
     }
